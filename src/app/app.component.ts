@@ -10,5 +10,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     of(1, 2, 3, 4, 5, 8).subscribe((item) => console.log(item));
+    from([1, 2, 3, 4, 5, 8]).subscribe({
+      next: (item) => console.log(`resulting item => ${item}`),
+      error: (err) => console.log(`error occurred => ${err}`),
+      complete: () => console.log('Complete'),
+    });
   }
 }
